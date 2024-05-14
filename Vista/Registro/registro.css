@@ -9,7 +9,7 @@
     align-items: center;
     justify-content:center ;
     height: 100vh;
-    background-image: url(../Vista/img/fondoBOT.jpg);
+    background-image: url(../img/fondoBOT.jpg);
     background-size: cover;
 }
 .container-form {
