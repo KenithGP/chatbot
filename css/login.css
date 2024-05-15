@@ -61,7 +61,7 @@ h2 {
     margin-bottom: 30px;
     display: flex;
     align-items: center;
-    border-bottom: 3px solid #3f16af;
+    border-bottom: 0px solid #3f16af;
 }
 
 .input-container i {
