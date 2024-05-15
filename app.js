@@ -99,11 +99,10 @@ app.post('/register', async (req, res) => {
     console.log(req.body)
 
     try {
-        await users.create({
+        const user = await users.create({
             email: email,
             password: password
         });
-
         
         await students.create({
             nombres,
@@ -111,6 +110,7 @@ app.post('/register', async (req, res) => {
             fecha_nacimiento: nacimiento,
             grado,
             genero,
+            id_user: user.id_user
         });
         
         res.status(200).send('Registro exitoso');

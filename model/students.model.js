@@ -28,6 +28,10 @@ const students = dbConnect.define('students', {
   fecha_nacimiento: {
     type: STRING,
     allowNull: false,
+  },
+  id_user: {
+    type: INTEGER,
+    allowNull: false,
   }
 }, { timestamps: true });
 
