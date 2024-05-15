@@ -16,10 +16,6 @@ const users = dbConnect.define('users', {
   password: {
     type: STRING,
     allowNull: false,
-  },
-  tipo_usuario: {
-    type: STRING,
-    allowNull: false,
   }
 }, { timestamps: true });
 

@@ -42,21 +42,25 @@
                         <i class='bx bx-envelope'></i>
                         <input type="email" placeholder="example@gmail.com" id="email" required>
                     </label>
+                    <label>
+                        <i class='bx bx-pass'></i>
+                        <input type="password" placeholder="contraseña" id="password" required>
+                    </label>
                     <p class="gender-title">Género:</p>
-                    <label class="gender-label">
-                        <i class='bx bx-gender-male'></i>
-                        <input type="radio" name="gender" value="male" required>
-                        <span>Masculino</span>
-                    </label>
-                    <label class="gender-label">
-                        <i class='bx bx-gender-female'></i>
-                        <input type="radio" name="gender" value="female" required>
-                        <span>Femenino</span>
-                    </label>
-                    <label class="gender-label">
-                        <input type="radio" name="gender" value="prefer_not" required>
-                        <span>Prefiero no decirlo</span>
-                    </label>
+                        <label class="gender-label" id="male-label">
+                            <i class='bx bx-gender-male'></i>
+                            <input type="radio" name="gender" value="male" required>
+                            <span>Masculino</span>
+                        </label>
+                        <label class="gender-label" id="female-label">
+                            <i class='bx bx-gender-female'></i>
+                            <input type="radio" name="gender" value="female" required>
+                            <span>Femenino</span>
+                        </label>
+                        <label class="gender-label" id="prefer-not-label">
+                            <input type="radio" name="gender" value="prefer_not" required>
+                            <span>Prefiero no decirlo</span>
+                        </label>
                     <input type="submit" value="Registrarse">
                 </form>
             </div>

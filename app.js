@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const crypto = require('crypto');
 const users = require('./model/login.model');
+const students = require('./model/students.model');
 
 dbConnect.authenticate()
 .then(() => console.log('Db authenticated'))
@@ -98,39 +99,20 @@ app.post('/register', async (req, res) => {
     console.log(req.body)
 
     try {
-        await usuarios.create({
-            tipo_usuario: usertype,
+        await users.create({
             email: email,
             password: password
         });
 
-        if (usertype.toLowerCase() === 'paciente') {
-            await pacientes.create({
-                name: username,
-                firstname: firstname,
-                dni: dni,
-                years: years,
-            });
-        }
-
-        if (usertype.toLowerCase() === 'doctor') {
-            await doctores.create({
-                name: username,
-                firstname: firstname,
-                dni: dni,
-                years: years,
-            });
-        }
-
-        if (usertype.toLowerCase() === 'medico') {
-            await medicos.create({
-                name: username,
-                firstname: firstname,
-                dni: dni,
-                years: years,
-            });
-        }
-
+        
+        await students.create({
+            nombres,
+            apellidos,
+            fecha_nacimiento: nacimiento,
+            grado,
+            genero,
+        });
+        
         res.status(200).send('Registro exitoso');
 
     } catch (error) {

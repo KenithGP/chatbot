@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (response.ok) {
               console.log(response)
                 alert('Bienvenido');
-                window.location.href = '/home'; 
+                window.location.href = '/'; 
             } else {
                 alert('¡Error de inicio de sesión! Verifique su correo electrónico y contraseña.');
             }
