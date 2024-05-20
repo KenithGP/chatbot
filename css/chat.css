@@ -1,5 +1,5 @@
 .App{
-    background-image: url("../img/FONDO\ \ \(1\).jpg");
+    background-image: url("/home/img/FONDO.jpg");
     display: flex;
     align-items: center;
     justify-content: center;
