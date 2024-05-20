@@ -67,6 +67,14 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'vista', 'home.vista.html'));
 });
 
+app.get('/cursos', (req, res) => {
+    res.sendFile(path.join(__dirname, 'vista', 'cursos.vista.html'));
+});
+
+app.get('/chat', (req, res) => {
+    res.sendFile(path.join(__dirname, 'vista', 'chat.vista.htm'));
+});
+
 server.listen(9000, () => {
     console.log("Servidor iniciado en el port: 9000");
 });
