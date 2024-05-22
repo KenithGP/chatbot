@@ -128,3 +128,32 @@ app.post('/register', async (req, res) => {
         res.status(500).send('Error interno del servidor');
     }
 });
+
+app.get('/student-info', async (req, res) => {
+    if (!req.session.user) {
+        return res.status(401).send('No autorizado');
+    }
+
+    try {
+        const student = await students.findOne({
+            where: { id_user: req.session.user.id_user },
+        });
+        console.log(req.session.user)
+        
+        if (student) {
+            res.json({
+                nombres: student.nombres,
+                apellidos: student.apellidos,
+                fecha_nacimiento: student.fecha_nacimiento,
+                grado: student.grado,
+                genero: student.genero,
+                email: req.session.user.email
+            });
+        } else {
+            res.status(404).send('Estudiante no encontrado');
+        }
+    } catch (error) {
+        console.error('Error al obtener los datos del estudiante:', error);
+        res.status(500).send('Error interno del servidor');
+    }
+});

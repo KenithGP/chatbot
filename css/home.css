@@ -6,7 +6,7 @@
 }
 
 body {
-    background: url('../img/FONDO\ \ \(1\).jpg') no-repeat center center fixed;
+    background: url('/home/img/FONDO.jpg') no-repeat center center fixed;
     background-size: cover;
 }
 

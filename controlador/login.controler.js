@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (response.ok) {
               console.log(response)
                 alert('Bienvenido');
-                window.location.href = '/'; 
+                window.location.href = '/cursos'; 
             } else {
                 alert('¡Error de inicio de sesión! Verifique su correo electrónico y contraseña.');
             }
