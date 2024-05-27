@@ -10,6 +10,9 @@ const cookieParser = require('cookie-parser');
 const crypto = require('crypto');
 const users = require('./model/login.model');
 const students = require('./model/students.model');
+const cursos = require('./model/cursos.model');
+const temas = require('./model/temas.model');
+const { sendQueryToOpenAI } = require('./controlador/openIA');
 
 dbConnect.authenticate()
 .then(() => console.log('Db authenticated'))
@@ -72,7 +75,7 @@ app.get('/cursos', (req, res) => {
 });
 
 app.get('/chat', (req, res) => {
-    res.sendFile(path.join(__dirname, 'vista', 'chat.vista.htm'));
+    res.sendFile(path.join(__dirname, 'vista', 'chatPrueba.vista.html'));
 });
 
 server.listen(9000, () => {
@@ -155,5 +158,42 @@ app.get('/student-info', async (req, res) => {
     } catch (error) {
         console.error('Error al obtener los datos del estudiante:', error);
         res.status(500).send('Error interno del servidor');
+    }
+});
+
+app.get('/topics', async (req, res) => {
+    //nombre del curso seleccionado
+    const nombre = req.query.course;
+    console.log('get topics: ', nombre);
+
+    if (!nombre) {
+        return res.status(400).send({ error: 'Nombre del curso es requerido'});
+    } 
+
+    const cursosInfo = await cursos.findOne({
+        where: {nombre}
+    });
+
+    const id_curso = cursosInfo.id_curso
+    const topics = await temas.findAll({
+        where: {id_curso}
+    });
+
+    res.json(topics);
+});
+
+
+app.post('/api/chat', async (req, res) => {
+    try {
+        const { message } = req.body; // Obtener el mensaje del cuerpo de la solicitud
+
+        // Enviar la consulta a OpenAI y obtener la respuesta
+        const botResponse = await sendQueryToOpenAI(message);
+
+        // Enviar la respuesta del modelo al cliente
+        res.json({ response: botResponse });
+    } catch (error) {
+        console.error('Error al procesar la solicitud de chat:', error);
+        res.status(500).json({ error: 'Error interno del servidor' });
     }
 });

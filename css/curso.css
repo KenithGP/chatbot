@@ -117,3 +117,41 @@ body {
 .course:nth-child(6) {
     background-color: #F6E4A1;
 }
+
+.course {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+}
+
+.topics {
+    display: none;
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.course:hover .topics {
+    display: block;
+}
+
+.topic {
+    margin-bottom: 5px;
+}
+
+.topics-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    z-index: 1;
+}
+
+.topic-option {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.course:hover .topics-menu {
+    display: block;
+}
