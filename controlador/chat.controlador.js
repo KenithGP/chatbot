@@ -1,24 +1,35 @@
 document.addEventListener('DOMContentLoaded', function () {
+    const params = new URLSearchParams(window.location.search);
+    const grado = params.get('Grado');
+    const tema = params.get('Tema');
+
     const form = document.getElementById('message-form');
     const userInput = document.getElementById('user-input');
     const chatWindow = document.getElementById('chat-window');
 
+    if (grado && tema) {
+        const initialMessage = `Hola, necesito información sobre el tema ${tema} para el grado ${grado}.`;
+
+        //appendMessage('user', initialMessage);
+        getBotResponse(initialMessage).then(botResponse => {
+            appendMessage('bot', botResponse);
+        }).catch(error => {
+            console.error('Error al obtener respuesta del bot:', error);
+        });
+    }
+
     form.addEventListener('submit', async function (event) {
-        event.preventDefault(); // Evita que se recargue la página al enviar el formulario
+        event.preventDefault(); 
 
-        const message = userInput.value.trim(); // Obtener el mensaje del usuario
-        if (message === '') return; // Si el mensaje está vacío, no hacer nada
+        const message = userInput.value.trim();
+        if (message === '') return; 
 
-        // Agregar el mensaje del usuario al chat
         appendMessage('user', message);
 
-        // Obtener respuesta del modelo de lenguaje
         const botResponse = await getBotResponse(message);
 
-        // Mostrar la respuesta del modelo en el chat
         appendMessage('bot', botResponse);
 
-        // Limpiar el campo de entrada después de enviar el mensaje
         userInput.value = '';
     });
 
@@ -32,7 +43,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 body: JSON.stringify({ question: userMessage })
             });
             const data = await response.json();
-            return data.answer;
+            console.log(data)
+            return data.response;
         } catch (error) {
             console.error('Error al obtener respuesta del bot:', error);
             return 'Lo siento, ha ocurrido un error.';

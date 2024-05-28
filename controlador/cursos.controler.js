@@ -64,7 +64,7 @@ async function loadTopics(courseName, courseElement) {
         selectElement.addEventListener('change', function() {
             const selectedTema = this.value;
             const selectedGrade = studentData.grado;
-            window.location.href = `/chat?Grado=${selectedGrade}=${selectedTema}`;
+            window.location.href = `/chat?Grado=${selectedGrade}&Tema=${selectedTema}`;
         });
 
     } catch (error) {

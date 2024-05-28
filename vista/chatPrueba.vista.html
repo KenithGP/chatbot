@@ -4,7 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chat</title>
-    <!-- <link rel="stylesheet" href="styles.css"> Estilos opcionales -->
+    <style>
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+        #chat-window {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            overflow-y: auto;
+            height: 300px;
+        }
+        .user-message {
+            text-align: right;
+            background-color: #DCF8C6;
+            border-radius: 10px;
+            padding: 5px 10px;
+            margin: 5px;
+            display: inline-block;
+        }
+        .bot-message {
+            text-align: left;
+            background-color: #F1F0F0;
+            border-radius: 10px;
+            padding: 5px 10px;
+            margin: 5px;
+            display: inline-block;
+        }
+        #message-form {
+            display: flex;
+        }
+        #user-input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #message-form button {
+            padding: 10px 20px;
+            margin-left: 10px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #message-form button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <div class="chat-container">

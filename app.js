@@ -175,6 +175,7 @@ app.get('/topics', async (req, res) => {
     });
 
     const id_curso = cursosInfo.id_curso
+    
     const topics = await temas.findAll({
         where: {id_curso}
     });
@@ -185,12 +186,12 @@ app.get('/topics', async (req, res) => {
 
 app.post('/api/chat', async (req, res) => {
     try {
-        const { message } = req.body; // Obtener el mensaje del cuerpo de la solicitud
+        const { question } = req.body;
+        //console.log('Pregunta recibida:', question);  // Agregar mensaje de depuración
 
-        // Enviar la consulta a OpenAI y obtener la respuesta
-        const botResponse = await sendQueryToOpenAI(message);
+        const botResponse = await sendQueryToOpenAI(question);
+        //console.log('Respuesta del bot:', botResponse);  // Agregar mensaje de depuración
 
-        // Enviar la respuesta del modelo al cliente
         res.json({ response: botResponse });
     } catch (error) {
         console.error('Error al procesar la solicitud de chat:', error);
