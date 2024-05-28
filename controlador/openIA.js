@@ -5,7 +5,6 @@ const dotenv = require('dotenv');
 dotenv.config({ path: '.env' });
 
 const openaiAPIKey = process.env.OPEN_IA_KEY2;
-// const openaiAPIKey = 'sk-proj-ml7hy9zVtAZc5l1UDMu9T3BlbkFJR5m6ICwj0INfz6dI7MNO';
 console.log(openaiAPIKey)
 let openaiInstance;
 
