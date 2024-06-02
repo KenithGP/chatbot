@@ -4,22 +4,23 @@ const { Sequelize } = require('sequelize')
 
 dotenv.config({ path: '.env' });
 
-// const dbConnect = new Sequelize({
-//     dialect: 'mysql',
-//     host: '127.0.0.1',
-//     username: 'root',
-//     password: '',
-//     port: '3306',
-//     database: 'chatbot',
-//     logging: false,
-//     dialectOptions: process.env.NODE_ENV === 'production'? {
-//       ssl: {
-//         require: true,
-//         rejectUnauthorized: false
-//       }
-//     } : {},
-//   });
+const dbConnect = new Sequelize({
+     dialect: 'mysql',
+     host: '127.0.0.1',
+     username: 'root',
+    password: '',
+    port: '3306',
+     database: 'chatbot',
+     logging: false,
+     dialectOptions: process.env.NODE_ENV === 'production'? {
+       ssl: {
+        require: true,
+        rejectUnauthorized: false
+       }
+     } : {},
+   });
 
+/*
   const dbConnect = new Sequelize({
     dialect: 'mysql',
     host: process.env.DBHOST,
@@ -35,4 +36,5 @@ dotenv.config({ path: '.env' });
       }
     } : {},
   });
+  */
   module.exports = {dbConnect};

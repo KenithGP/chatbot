@@ -1,3 +1,4 @@
 node_modules/
-pjsip/segurit.env
+.env
 *.env
+../node_modules/

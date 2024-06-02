@@ -187,10 +187,10 @@ app.get('/topics', async (req, res) => {
 app.post('/api/chat', async (req, res) => {
     try {
         const { question } = req.body;
-        //console.log('Pregunta recibida:', question);  // Agregar mensaje de depuración
+        console.log('Pregunta recibida:', question);  // Agregar mensaje de depuración
 
         const botResponse = await sendQueryToOpenAI(question);
-        //console.log('Respuesta del bot:', botResponse);  // Agregar mensaje de depuración
+        console.log('Respuesta del bot:', botResponse);  // Agregar mensaje de depuración
 
         res.json({ response: botResponse });
     } catch (error) {

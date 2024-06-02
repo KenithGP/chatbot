@@ -24,7 +24,7 @@ const sendQueryToOpenAI = async (query) => {
           'Content-Type': 'application/json',
         },
         body: {
-          model: 'gpt-3.5-turbo',  // Modelo de chat
+          model: 'text-davinci-004', // Modelo de chat
           messages: [
             { role: 'system', content: 'Eres un profesor de nivel de primaria, cada tema que te escriba debes de detallar a fondo en como se hace, como se resolveria, etc.' },
             { role: 'user', content: query }
