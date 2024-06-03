@@ -1,0 +1,154 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif; /* Cambiar la fuente a una más lúdica */
+    background-color: #FFF4E3; /* Cambiar el color de fondo a un tono más suave */
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    background-image: linear-gradient(to right, rgba(8, 48, 74, 0.8), rgba(8, 48, 74, 0.6)), url('https://images.hive.blog/768x0/https://cdn.steemitimages.com/DQmQN4ga2vmGNjDYg6YYCvwVdGEV2Fm2kdYfc5iHQDTJHG8/sin-fondo.png');
+    background-position: left top, right top;
+    background-repeat: no-repeat, no-repeat;
+    background-size: auto, auto;
+    width: 95%; /* Ancho ya ajustado */
+    height: 95vh; /* Ajustar la altura */
+    max-width: 1400px; /* Ancho máximo del contenedor */
+    margin: auto; /* Centrar horizontalmente */
+    padding: 30px; /* Agregar espacio interno */
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Aumentar el tamaño y la difuminación de la sombra */
+    color: #333; /* Cambiar el color del texto a negro */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    animation: moveBackground 20s linear infinite; /* Animación para mover el fondo */
+}
+
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header img {
+    width: 50px;
+    margin-right: 20px;
+    align-self: center; /* Centrar verticalmente la imagen */
+    transition: all 0.3s ease; /* Agregar transición suave */
+}
+
+.header img:hover {
+    transform: scale(1.1); /* Escalar la imagen al pasar el mouse sobre ella */
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 28px; /* Aumentar el tamaño del título */
+    font-weight: bold; /* Hacer el título del encabezado más audaz */
+    text-transform: uppercase; /* Convertir el título del encabezado en mayúsculas */
+    color: #333; /* Cambiar el color del título a negro */
+}
+
+.content {
+    display: flex;
+    width: 80%; /* Reducir el ancho para centrar el contenido */
+    max-width: 1000px; /* Limitar el ancho máximo */
+    gap: 60px;
+    flex-direction: row; /* Cambiado a fila para alinear horizontalmente */
+    align-items: center;
+    margin: auto; /* Centrar el contenido horizontalmente */
+}
+
+.profile {
+    background-color: #FFB347; /* Cambiar el color de fondo del perfil a naranja */
+    padding: 30px; /* Aumentar el espacio interno */
+    border-radius: 20px;
+    color: #fff;
+    width: 350px; /* Aumentar el ancho del cuadro */
+    margin-right: 20px; /* Añadido margen derecho para separar del contenido de los cursos */
+    transition: all 0.3s ease; /* Agregar transición suave */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Agregar sombra */
+}
+
+.profile:hover {
+    transform: translateY(-5px); /* Levantar ligeramente el perfil al pasar el mouse sobre él */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* Aumentar la sombra al pasar el mouse sobre el perfil */
+}
+
+.profile h2 {
+    margin-top: 0;
+    font-size: 24px; /* Aumentar el tamaño del subtítulo del perfil */
+    color: #333; /* Cambiar el color del subtítulo a negro */
+}
+
+.profile p {
+    margin: 10px 0;
+    font-size: 18px; /* Aumentar el tamaño del texto del perfil */
+    line-height: 1.5; /* Ajustar el espaciado entre líneas para una mejor legibilidad */
+}
+
+.courses {
+    display: flex;
+    flex-wrap: wrap; /* Para que los botones puedan envolverse */
+    gap: 20px; /* Aumentar espacio entre cursos */
+    justify-content: center; /* Centrar horizontalmente los botones */
+    align-items: center; /* Centrar verticalmente los botones */
+}
+
+/* Estilos para los botones */
+.course {
+    cursor: pointer;
+    padding: 20px 40px;
+    border: none;
+    border-radius: 30px; /* Cambiar a bordes más redondeados */
+    margin-bottom: 20px; /* Reducir espacio entre botones */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    position: relative;
+    font-size: 20px; /* Aumentar el tamaño del texto del botón */
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    background-color: #FF6B6B;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilos para el hover de los botones */
+.course:hover {
+    background-color: #FF8E53;
+    transform: translateY(-5px); /* Sutil levantamiento en hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Aumentar la sombra */
+}
+
+.selected {
+    background-color: #FFD166;
+}
+
+/* Estilos para chispas */
+.sparkle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #F27781;
+    animation: sparkle 0.5s ease-out forwards infinite;
+}
+
+@keyframes sparkle {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
